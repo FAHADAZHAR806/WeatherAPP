@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+html{
+  background: radial-gradient(circle at 20% 30%, #fff9c4, #a1c4fd, #90caf9);
+  min-height: 100vh;
+  margin: 0;
+  
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
