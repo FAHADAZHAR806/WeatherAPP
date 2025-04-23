@@ -9,19 +9,19 @@ import Box8 from './Boxes/Box8'
 import Box9 from './Boxes/Box9'
 import Box10 from './Boxes/Box10'
 import Box11 from './Boxes/Box11'
-export default function UI({weatherData}) {
+export default function UI({weatherData, onCitySelect }) {
  
   return (
     <>
     <div className='grid grid-cols-1 w-full max-w-6xl m-auto  text-white'>
-    <div className="grid  grid-cols-6 grid-rows-4 gap-4 p-4 bg-gray-100">
+    <div className="grid grid-cols-1   lg:grid-cols-6 lg:grid-rows-4 gap-4 p-4 bg-gray-100">
   {/* I am BOX 1 */}
-  <div className="bg-blue-300 col-span-4 row-span-1 px-2 rounded-[4px]">
-    <Box1 weatherData={weatherData}/>
+  <div className="bg-blue-300 col-span-2 lg:col-span-4 row-span-1 px-2 rounded-[4px]">
+    <Box1 weatherData={weatherData} />
   </div>
   {/* I am Box2 */}
   <div className="bg-blue-300   row-span-3 col-span-2 px-2 rounded-[4px]">
-<Box2 weatherData={weatherData}/>
+<Box2 weatherData={weatherData} onCitySelect={onCitySelect}/>
   </div>
 
   {/* I am Box 3*/}
