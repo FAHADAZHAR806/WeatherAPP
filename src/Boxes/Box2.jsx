@@ -28,10 +28,12 @@ export default function Box2({ onCitySelect }) {
       if (selected) {
         try {
           const apiKey = "2cceac6b706c4a9fa56110424252304";
-          const url = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${selected.lat},${selected.lng}`;
+
+          const url = ` https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${selected.lat},${selected.lng}`;
+
           const res = await fetch(url);
           const data = await res.json();
-          if (data && data.length > 0) {
+          if (data && data.length >0 ) {
             const cityName = data[0].name;
             console.log("Selected City:", cityName);
             onCitySelect(cityName); // Send city to App.jsx

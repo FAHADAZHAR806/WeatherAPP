@@ -11,9 +11,15 @@ export default function App() {
   const fetchWeather = async () => {
     try {
       const apiKey = "2cceac6b706c4a9fa56110424252304";
-      const apiUrl = `https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`;
+      // const apiUrl = ` https://api.weatherapi.com/v1/forecast.json?q=${city}&key=${apiKey}`;
+      const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=10`      
+
+     
+      
+
       const response = await axios.get(apiUrl);
-      setWeatherData(response.data);
+      const responsee =await response.data
+      setWeatherData(responsee);
     } catch (error) {
       console.error('Error fetching weather:', error);
     }
