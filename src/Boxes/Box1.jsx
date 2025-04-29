@@ -204,16 +204,16 @@ export default function Box1({ weatherData }) {
   ];
   return (
     <>
-      <div className="grid grid-cols-1 grid-rows-2 py-4">
+      <div className="grid grid-cols-1 grid-rows-2 py-4 ">
         <p className="text-center">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum,
-          deleniti?
+          {weatherData.current.condition.text} conditions will continue for the rest of the day Winds gust are upto {weatherData.current.wind_kph}kp/h
         </p>
         <hr />
       </div>
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-2 lg:grid-cols-10  ">
+      <div className="grid grid-cols-3 justify-items-center md:px-0 lg:grid-cols-10   ">
         {Data.map((item, index) => (
-          <div key={index} className="grid grid-cols-1 grid-rows-3 ">
+          <div key={index} className={index === 9 ? 'hidden lg:block' : ''}
+          >
             {item.Time}
             {item.img}
             {item.Value}

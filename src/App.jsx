@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import './App.css';
 import axios from "axios";
+import ThemeContext from "./ThemeContext";
 import UI from "./UI";
 import Text from "./Text";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState('Lahore');
-
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   const fetchWeather = async () => {
     try {
       const apiKey = "2cceac6b706c4a9fa56110424252304";
@@ -28,11 +31,22 @@ export default function App() {
   useEffect(() => {
     fetchWeather();
   }, [city]);
+  
 
   return (
     <>
-      <Text setCity={setCity} />
+   
+    <ThemeContext.Provider value={{theme,toggleTheme}}  >
+      <div style={{
+          backgroundColor: theme === "light" ? "#f4f4f4" : "#1a1a1a",
+          color: theme === "light" ? "#1a1a1a" : "#f4f4f4",
+      }}>
+          <Text setCity={setCity} />
       <UI weatherData={weatherData} onCitySelect={setCity} />
-    </>
+      </div>
+      </ThemeContext.Provider>  
+      
+       </>
+      
   );
 }
